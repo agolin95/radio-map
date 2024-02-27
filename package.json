@@ -1,0 +1,26 @@
+{
+  "name": "radio-map",
+  "version": "1.0.0",
+  "description": "Map of radio stations",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Golin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
+    "radio-browser": "^2.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.1.0"
+  }
+}

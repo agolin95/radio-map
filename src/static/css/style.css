@@ -1,0 +1,26 @@
+html,
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 10px;
+}

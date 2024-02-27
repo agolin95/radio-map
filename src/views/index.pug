@@ -1,0 +1,24 @@
+doctype html 
+html(lang="en")
+    head 
+        title LoremIpsum
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="description", content="LoremIpsum")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(property="og:type", content="website")
+        meta(property="og:url", content="LoremIpsum")
+        meta(property="og:title", content="LoremIpsum")
+        meta(property="og:description", content="LoremIpsum")
+        meta(property="og:image", content="LoremIpsum")
+        link(rel="stylesheet", href="./css/style.css")
+    body 
+        h1 Zeppelin Rules!
+
+        ul 
+            each station in data
+                a(href=station.url_resolved)
+                    li= station.name
+
+        script.
+            console.log(!{JSON.stringify(data)});
