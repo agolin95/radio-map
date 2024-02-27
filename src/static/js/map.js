@@ -40,8 +40,19 @@ function populateMap (stations, map) {
     const url = stations[i].url_resolved
     if (name && lat && long && url.includes('https') && !url.includes('.m3u')) {
       const element = `<h2 data-station='${JSON.stringify(stations[i])}'>${name}</h2>`
-      L.marker([lat, long]).addTo(map)
+
+      const radioIcon = L.icon({
+        iconUrl: 'img/radio.png',
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -50]
+      })
+
+      L.marker([lat, long], { icon: radioIcon }).addTo(map)
         .bindPopup(element)
+
+      // L.marker([lat, long]).addTo(map)
+      //   .bindPopup(element)
     }
   }
 }

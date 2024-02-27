@@ -73,3 +73,7 @@ li {
 #footer #playing {
     margin-left: 20px;
 }
+
+.leaflet-popup-content h2 {
+    cursor: pointer;
+}
