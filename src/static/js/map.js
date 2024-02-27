@@ -1,20 +1,26 @@
 $(function () {
-  console.log('map.js')
-
   const map = initMap()
-
   fetchStations(map)
 })
 
-function initMap() {
+function initMap () {
   const map = L.map('map').setView([40.781338, -73.966552], 13)
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map)
+
+  const CartoDBDarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
+  })
+
+  CartoDBDarkMatter.addTo(map)
+
+  // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  // }).addTo(map)
   return map
 }
 
-function fetchStations(map) {
+function fetchStations (map) {
   fetch('/api/stations')
     .then(response => response.json())
     .then(stations => {
@@ -26,7 +32,7 @@ function fetchStations(map) {
     })
 }
 
-function populateMap(stations, map) {
+function populateMap (stations, map) {
   for (let i = 0; i < stations.length; i++) {
     const name = stations[i].name
     const lat = stations[i].geo_lat
@@ -52,5 +58,5 @@ $('#map').on('click', '.leaflet-popup-content>h2', function () {
   audio.src = station.url_resolved
   audio.play()
   $('#pause').show()
-  $('#playing>h3').html(`${station.name} - ${station.state} - ${station.homepage}`)
+  $('#playing>h3').html(`${station.name} - <a href='${station.homepage}' target='_blank'>${station.homepage}</a>`)
 })

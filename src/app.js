@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
-const RadioBrowser = require('radio-browser')
+const stations = require('./stations.json')
+// const RadioBrowser = require('radio-browser')
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -18,19 +19,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/stations', (req, res) => {
-  const filter = {
-    limit: 500,
-    by: 'country',
-    searchterm: 'The United States Of America'
-  }
-  RadioBrowser.getStations(filter)
-    .then(function (stations) {
-      res.json(stations)
-    })
-    .catch(function (err) {
-      console.error('Error getting stations from radio-browser: ', err)
-      res.status(500).json({ err: 'Error getting stations from radio-browser' })
-    })
+  // const filter = {
+  //   limit: 500,
+  //   by: 'country',
+  //   searchterm: 'The United States Of America'
+  // }
+  // RadioBrowser.getStations(filter)
+  //   .then(function (stations) {
+  //     res.json(stations)
+  //   })
+  //   .catch(function (err) {
+  //     console.error('Error getting stations from radio-browser: ', err)
+  //     res.status(500).json({ err: 'Error getting stations from radio-browser' })
+  //   })
+  res.json(stations)
 })
 
 // Listen
