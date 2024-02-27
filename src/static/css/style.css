@@ -2,9 +2,6 @@
     --foot-h: 55px;
 }
 
-
-
-
 html,
 body {
     background-color: black;
@@ -34,6 +31,7 @@ li {
 #map {
     height: calc(100vh - var(--foot-h));
     width: 100%;
+    background-color: #262626;
 }
 
 #footer {
