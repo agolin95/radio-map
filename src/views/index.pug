@@ -1,24 +1,27 @@
 doctype html 
 html(lang="en")
     head 
-        title LoremIpsum
+        title Radio Map
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="description", content="LoremIpsum")
+        meta(name="description", content="A map of radio stations")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         meta(property="og:type", content="website")
-        meta(property="og:url", content="LoremIpsum")
-        meta(property="og:title", content="LoremIpsum")
-        meta(property="og:description", content="LoremIpsum")
-        meta(property="og:image", content="LoremIpsum")
+        meta(property="og:url", content="https://radio-map-59e54.web.app/")
+        meta(property="og:title", content="Radio Map")
+        meta(property="og:description", content="A map of radio stations")
+        meta(property="og:image", content="https://radio-map-59e54.web.app/splash.png")
         link(rel="stylesheet", href="./css/style.css")
+        link(rel="stylesheet", href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css", integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=", crossorigin="")
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js')
     body 
-        h1 Zeppelin Rules!
+        div(id="map")
+        div(id="footer")
+            div(id="play", class="audio-control")
+            div(id="pause",  class="audio-control")
+            div(id="playing")
+                h3 Select a station to start listening
 
-        ul 
-            each station in data
-                a(href=station.url_resolved)
-                    li= station.name
-
-        script.
-            console.log(!{JSON.stringify(data)});
+        audio(src="" id="audio")
+        script(src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=', crossorigin='')
+        script(src='./js/map.js' type="module")

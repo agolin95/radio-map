@@ -1,0 +1,5 @@
+{
+    "[src/stations.json]": {
+        "editor.formatOnSave": false
+    }
+}
