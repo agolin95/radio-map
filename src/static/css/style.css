@@ -1,8 +1,14 @@
+:root {
+    --foot-h: 55px;
+}
+
+
+
+
 html,
 body {
     background-color: black;
     color: white;
-    text-align: center;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -26,6 +32,44 @@ li {
 }
 
 #map {
-    height: 100vh;
+    height: calc(100vh - var(--foot-h));
     width: 100%;
+}
+
+#footer {
+    position: fixed;
+    background: #111;
+    height: var(--foot-h);
+    width: 100%;
+    display: inline-flex;
+}
+
+#footer div {
+    display: inline-block;
+}
+
+#footer #play {
+    background-image: url('/img/play.png');
+    display: none;
+
+}
+
+#footer #pause {
+    background-image: url('/img/pause.png');
+    display: none;
+}
+
+#footer #play,
+#footer #pause {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 15px 0 15px 20px;
+    height: calc(var(--foot-h) - 30px);
+    width: calc(var(--foot-h) - 30px);
+    filter: invert(100%);
+}
+
+#footer #playing {
+    margin-left: 20px;
 }

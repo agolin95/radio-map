@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/stations', (req, res) => {
   const filter = {
-    // limit: 1000,
+    limit: 500,
     by: 'country',
     searchterm: 'The United States Of America'
   }
