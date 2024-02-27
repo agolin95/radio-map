@@ -10,7 +10,8 @@
       {
         "source": "**",
         "run": {
-          "serviceId": "radio-map"
+          "serviceId": "radio-map",
+          "region": "northamerica-northeast1"
         }
       }
     ]
