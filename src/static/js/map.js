@@ -33,24 +33,24 @@ function populateMap(stations, map) {
     const long = stations[i].geo_long
     const url = stations[i].url_resolved
     if (name && lat && long && url.includes('https') && !url.includes('.m3u')) {
-      const element = `<h2 data-url=${url} onclick=playStream('${url}')>${name}</h2>`
+      const element = `<h2 data-station='${JSON.stringify(stations[i])}'>${name}</h2>`
       L.marker([lat, long]).addTo(map)
         .bindPopup(element)
-      // .bindPopup(`<a href='${url}'>${name}</a>`)
     }
   }
-}
-
-function playStream(url) {
-  console.log(url)
-  const audio = document.getElementById('audio')
-  audio.src = url
-  audio.play()
-  $('#pause').show()
 }
 
 $('.audio-control').on('click', function () {
   const audio = document.getElementById('audio')
   audio.paused ? audio.play() : audio.pause()
   $('.audio-control').toggle()
+})
+
+$('#map').on('click', '.leaflet-popup-content>h2', function () {
+  const station = $(this).data('station')
+  const audio = document.getElementById('audio')
+  audio.src = station.url_resolved
+  audio.play()
+  $('#pause').show()
+  $('#playing>h3').html(`${station.name} - ${station.state} - ${station.homepage}`)
 })
