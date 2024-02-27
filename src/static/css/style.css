@@ -34,31 +34,30 @@ li {
     background-color: #262626;
 }
 
-#footer {
-    position: fixed;
+#audio-bar {
     background: #111;
     height: var(--foot-h);
     width: 100%;
     display: inline-flex;
 }
 
-#footer div {
+#audio-bar div {
     display: inline-block;
 }
 
-#footer #play {
+#audio-bar #play {
     background-image: url('/img/play.png');
     display: none;
 
 }
 
-#footer #pause {
+#audio-bar #pause {
     background-image: url('/img/pause.png');
     display: none;
 }
 
-#footer #play,
-#footer #pause {
+#audio-bar #play,
+#audio-bar #pause {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -68,7 +67,7 @@ li {
     filter: invert(100%);
 }
 
-#footer #playing {
+#audio-bar #playing {
     margin-left: 20px;
 }
 
