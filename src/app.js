@@ -14,20 +14,23 @@ app.set('view engine', 'pug')
 
 // Set Routes
 app.get('/', (req, res) => {
+  res.render('index')
+})
+
+app.get('/api/stations', (req, res) => {
   const filter = {
+    // limit: 1000,
     by: 'country',
-    searchterm: 'The United States Of America',
-    limit: 1000
+    searchterm: 'The United States Of America'
   }
-  RadioBrowser.getStations(filter).then(
-    function (data) {
-      res.render('index', { data })
-    }
-  ).catch(
-    function (error) {
-      console.error(error)
-    }
-  )
+  RadioBrowser.getStations(filter)
+    .then(function (stations) {
+      res.json(stations)
+    })
+    .catch(function (err) {
+      console.error('Error getting stations from radio-browser: ', err)
+      res.status(500).json({ err: 'Error getting stations from radio-browser' })
+    })
 })
 
 // Listen
