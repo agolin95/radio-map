@@ -33,4 +33,5 @@ app.get('/', (req, res) => {
 // Listen
 app.listen(port, () => {
   console.info(`App listening on port ${port}`)
+  console.info('Debug')
 })
