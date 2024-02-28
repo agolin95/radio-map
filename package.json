@@ -17,7 +17,8 @@
     "leaflet": "^1.9.4",
     "path": "^0.12.7",
     "pug": "^3.0.2",
-    "radio-browser": "^2.2.3"
+    "radio-browser": "^2.2.3",
+    "wikipedia": "^2.1.2"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

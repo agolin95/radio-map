@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const stations = require('./stations.json')
+const wiki = require('wikipedia')
 // const RadioBrowser = require('radio-browser')
 
 const app = express()
@@ -33,6 +34,20 @@ app.get('/api/stations', (req, res) => {
   //     res.status(500).json({ err: 'Error getting stations from radio-browser' })
   //   })
   res.json(stations)
+})
+
+app.get('/api/wiki', (req, res) => {
+  const searchterm = req.query.station_name
+  wiki.page(searchterm)
+    .then(function (page) {
+      return page.summary()
+    })
+    .then(function (summary) {
+      res.json(summary)
+    })
+    .catch(function (err) {
+      console.error('Error getting data from wikipedia', err)
+    })
 })
 
 // Listen
