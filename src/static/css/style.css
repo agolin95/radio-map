@@ -34,30 +34,32 @@ li {
     background-color: #262626;
 }
 
-#audio-bar {
+#header {
     background: #111;
     height: var(--foot-h);
     width: 100%;
     display: inline-flex;
+    border-bottom: solid white 2px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-#audio-bar div {
+#header div {
     display: inline-block;
 }
 
-#audio-bar #play {
+#header #play {
     background-image: url('/img/play.png');
     display: none;
 
 }
 
-#audio-bar #pause {
+#header #pause {
     background-image: url('/img/pause.png');
     display: none;
 }
 
-#audio-bar #play,
-#audio-bar #pause {
+#header #play,
+#header #pause {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -67,7 +69,7 @@ li {
     filter: invert(100%);
 }
 
-#audio-bar #playing {
+#header #playing {
     margin-left: 20px;
 }
 
